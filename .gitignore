@@ -1,0 +1,44 @@
+# ==============================================================
+#  Abaqus solver output — large / binary / fully regenerable
+#  from the committed .cae and .inp files.  Kept out of the
+#  repository so clones stay small and fast.
+# ==============================================================
+*.odb
+*.fil
+*.sim
+*.stt
+*.mdl
+*.msg
+*.dat
+*.sta
+*.com
+*.prt
+*.log
+*.ipm
+*.abq
+*.pac
+*.res
+*.sel
+*.cid
+*.lck
+*.sma
+
+# ==============================================================
+#  Python
+# ==============================================================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ==============================================================
+#  OS / editor junk
+# ==============================================================
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.bak
+*.tmp
+~$*

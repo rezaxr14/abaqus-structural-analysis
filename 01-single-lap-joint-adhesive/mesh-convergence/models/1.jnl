@@ -1,0 +1,1751 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models.changeKey(fromName='Model-1', toName='SLJ')
+mdb.models['SLJ'].ConstrainedSketch(name='__profile__', sheetSize=150.0)
+mdb.models['SLJ'].sketches['__profile__'].rectangle(point1=(-5.0, 5.0), point2=
+    (5.0, 10.0))
+mdb.models['SLJ'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['SLJ'].sketches['__profile__'].geometry[3], entity2=
+    mdb.models['SLJ'].sketches['__profile__'].geometry[5], textPoint=(
+    -16.2387371063232, 6.99438095092773), value=25.0)
+mdb.models['SLJ'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['SLJ'].sketches['__profile__'].geometry[2], entity2=
+    mdb.models['SLJ'].sketches['__profile__'].geometry[4], textPoint=(62.5, 
+    0.0), value=62.5)
+del mdb.models['SLJ'].sketches['__profile__']
+mdb.models['SLJ'].ConstrainedSketch(name='__profile__', sheetSize=150.0)
+del mdb.models['SLJ'].sketches['__profile__']
+mdb.models['SLJ'].ConstrainedSketch(name='__profile__', sheetSize=150.0)
+mdb.models['SLJ'].sketches['__profile__'].rectangle(point1=(-5.0, 15.0), 
+    point2=(5.0, 20.0))
+mdb.models['SLJ'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['SLJ'].sketches['__profile__'].geometry[2], entity2=
+    mdb.models['SLJ'].sketches['__profile__'].geometry[4], textPoint=(0.0, 
+    -15.6879529953003), value=62.5)
+mdb.models['SLJ'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['SLJ'].sketches['__profile__'].geometry[5], entity2=
+    mdb.models['SLJ'].sketches['__profile__'].geometry[3], textPoint=(
+    -11.4294605255127, 19.9257698059082), value=25.0)
+mdb.models['SLJ'].sketches['__profile__'].Spot(point=(0.0, 0.0))
+mdb.models['SLJ'].sketches['__profile__'].CoincidentConstraint(entity1=
+    mdb.models['SLJ'].sketches['__profile__'].vertices[0], entity2=
+    mdb.models['SLJ'].sketches['__profile__'].vertices[4])
+mdb.models['SLJ'].sketches['__profile__'].undo()
+mdb.models['SLJ'].sketches['__profile__'].CoincidentConstraint(entity1=
+    mdb.models['SLJ'].sketches['__profile__'].vertices[0], entity2=
+    mdb.models['SLJ'].sketches['__profile__'].vertices[4])
+mdb.models['SLJ'].sketches['__profile__'].undo()
+mdb.models['SLJ'].sketches['__profile__'].CoincidentConstraint(entity1=
+    mdb.models['SLJ'].sketches['__profile__'].vertices[4], entity2=
+    mdb.models['SLJ'].sketches['__profile__'].vertices[0])
+mdb.models['SLJ'].sketches['__profile__'].undo()
+del mdb.models['SLJ'].sketches['__profile__']
+mdb.models['SLJ'].ConstrainedSketch(name='__profile__', sheetSize=150.0)
+del mdb.models['SLJ'].sketches['__profile__']
+mdb.models['SLJ'].ConstrainedSketch(name='__profile__', sheetSize=150.0)
+mdb.models['SLJ'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), point2=(
+    62.5, 25.0))
+mdb.models['SLJ'].Part(dimensionality=THREE_D, name='Adherend_Bottom', type=
+    DEFORMABLE_BODY)
+mdb.models['SLJ'].parts['Adherend_Bottom'].BaseSolidExtrude(depth=1.6, sketch=
+    mdb.models['SLJ'].sketches['__profile__'])
+del mdb.models['SLJ'].sketches['__profile__']
+mdb.models['SLJ'].ConstrainedSketch(name='__profile__', sheetSize=150.0)
+mdb.models['SLJ'].sketches['__profile__'].rectangle(point1=(50.0, 0.0), point2=
+    (62.5, 25.0))
+mdb.models['SLJ'].Part(dimensionality=THREE_D, name='Adhesive', type=
+    DEFORMABLE_BODY)
+mdb.models['SLJ'].parts['Adhesive'].BaseSolidExtrude(depth=0.2, sketch=
+    mdb.models['SLJ'].sketches['__profile__'])
+del mdb.models['SLJ'].sketches['__profile__']
+mdb.models['SLJ'].ConstrainedSketch(name='__profile__', sheetSize=150.0)
+mdb.models['SLJ'].sketches['__profile__'].rectangle(point1=(50.0, 0.0), point2=
+    (112.5, 25.0))
+mdb.models['SLJ'].Part(dimensionality=THREE_D, name='Adherend_Top', type=
+    DEFORMABLE_BODY)
+mdb.models['SLJ'].parts['Adherend_Top'].BaseSolidExtrude(depth=1.6, sketch=
+    mdb.models['SLJ'].sketches['__profile__'])
+del mdb.models['SLJ'].sketches['__profile__']
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['SLJ'].parts['Adhesive'].features['Solid extrude-1'].sketch)
+mdb.models['SLJ'].parts['Adhesive'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['SLJ'].sketches['__edit__'], upToFeature=
+    mdb.models['SLJ'].parts['Adhesive'].features['Solid extrude-1'])
+mdb.models['SLJ'].sketches['__edit__'].autoDimension(objectList=(
+    mdb.models['SLJ'].sketches['__edit__'].geometry[2], 
+    mdb.models['SLJ'].sketches['__edit__'].geometry[3], 
+    mdb.models['SLJ'].sketches['__edit__'].geometry[4], 
+    mdb.models['SLJ'].sketches['__edit__'].geometry[5]))
+mdb.models['SLJ'].parts['Adhesive'].features['Solid extrude-1'].setValues(
+    sketch=mdb.models['SLJ'].sketches['__edit__'])
+del mdb.models['SLJ'].sketches['__edit__']
+mdb.models['SLJ'].parts['Adhesive'].regenerate()
+mdb.models['SLJ'].Material(name='Aluminum')
+mdb.models['SLJ'].materials['Aluminum'].Elastic(table=((70000.0, 0.33), ))
+mdb.models['SLJ'].Material(name='Epoxy')
+mdb.models['SLJ'].materials['Epoxy'].Elastic(table=((2000.0, 0.35), ))
+mdb.models['SLJ'].HomogeneousSolidSection(material='Aluminum', name=
+    'Sec_Adherend', thickness=None)
+mdb.models['SLJ'].HomogeneousSolidSection(material='Epoxy', name='Sec_Adhesive'
+    , thickness=None)
+mdb.models['SLJ'].parts['Adherend_Bottom'].Set(cells=
+    mdb.models['SLJ'].parts['Adherend_Bottom'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), name='Set-1')
+mdb.models['SLJ'].parts['Adherend_Bottom'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['SLJ'].parts['Adherend_Bottom'].sets['Set-1'], sectionName=
+    'Sec_Adherend', thicknessAssignment=FROM_SECTION)
+mdb.models['SLJ'].parts['Adherend_Top'].Set(cells=
+    mdb.models['SLJ'].parts['Adherend_Top'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), name='Set-1')
+mdb.models['SLJ'].parts['Adherend_Top'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['SLJ'].parts['Adherend_Top'].sets['Set-1'], sectionName=
+    'Sec_Adherend', thicknessAssignment=FROM_SECTION)
+mdb.models['SLJ'].parts['Adhesive'].Set(cells=
+    mdb.models['SLJ'].parts['Adhesive'].cells.getSequenceFromMask(('[#1 ]', ), 
+    ), name='Set-1')
+mdb.models['SLJ'].parts['Adhesive'].SectionAssignment(offset=0.0, offsetField=
+    '', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['SLJ'].parts['Adhesive'].sets['Set-1'], sectionName=
+    'Sec_Adhesive', thicknessAssignment=FROM_SECTION)
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['SLJ'].rootAssembly.Instance(dependent=ON, name='Adherend_Bottom-1', 
+    part=mdb.models['SLJ'].parts['Adherend_Bottom'])
+mdb.models['SLJ'].rootAssembly.Instance(dependent=ON, name='Adherend_Top-1', 
+    part=mdb.models['SLJ'].parts['Adherend_Top'])
+mdb.models['SLJ'].rootAssembly.Instance(dependent=ON, name='Adhesive-1', part=
+    mdb.models['SLJ'].parts['Adhesive'])
+mdb.models['SLJ'].rootAssembly.translate(instanceList=('Adhesive-1', ), vector=
+    (0.0, 0.0, 1.6))
+mdb.models['SLJ'].rootAssembly.translate(instanceList=('Adherend_Top-1', ), 
+    vector=(0.0, 0.0, 1.8))
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].parts['Adherend_Bottom'].Surface(name='Surf_Bot_Top', 
+    side1Faces=
+    mdb.models['SLJ'].parts['Adherend_Bottom'].faces.getSequenceFromMask((
+    '[#10 ]', ), ))
+mdb.models['SLJ'].parts['Adhesive'].Surface(name='Surf_Adh_Top', side1Faces=
+    mdb.models['SLJ'].parts['Adhesive'].faces.getSequenceFromMask(('[#10 ]', ), 
+    ))
+mdb.models['SLJ'].parts['Adherend_Top'].Surface(name='Surf_Top_Bot', 
+    side1Faces=
+    mdb.models['SLJ'].parts['Adherend_Top'].faces.getSequenceFromMask((
+    '[#20 ]', ), ))
+mdb.models['SLJ'].rootAssembly.regenerate()
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].parts['Adhesive'].Surface(name='Surf_Adh_Bot', side1Faces=
+    mdb.models['SLJ'].parts['Adhesive'].faces.getSequenceFromMask(('[#20 ]', ), 
+    ))
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].rootAssembly.regenerate()
+mdb.models['SLJ'].Tie(adjust=ON, main=
+    mdb.models['SLJ'].rootAssembly.instances['Adherend_Bottom-1'].surfaces['Surf_Bot_Top']
+    , name='Tie_Bottom', positionToleranceMethod=COMPUTED, secondary=
+    mdb.models['SLJ'].rootAssembly.instances['Adhesive-1'].surfaces['Surf_Adh_Bot']
+    , thickness=ON, tieRotations=ON)
+mdb.models['SLJ'].Tie(adjust=ON, main=
+    mdb.models['SLJ'].rootAssembly.instances['Adherend_Top-1'].surfaces['Surf_Top_Bot']
+    , name='Tie_Top', positionToleranceMethod=COMPUTED, secondary=
+    mdb.models['SLJ'].rootAssembly.instances['Adhesive-1'].surfaces['Surf_Adh_Top']
+    , thickness=ON, tieRotations=ON)
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].parts['Adhesive'].seedEdgeByNumber(constraint=FINER, edges=
+    mdb.models['SLJ'].parts['Adhesive'].edges.getSequenceFromMask(('[#12a ]', 
+    ), ), number=4)
+mdb.models['SLJ'].parts['Adhesive'].seedEdgeByBias(biasMethod=DOUBLE, 
+    constraint=FINER, endEdges=
+    mdb.models['SLJ'].parts['Adhesive'].edges.getSequenceFromMask(('[#c50 ]', 
+    ), ), number=60, ratio=4.0)
+mdb.models['SLJ'].parts['Adhesive'].seedEdgeByNumber(constraint=FINER, edges=
+    mdb.models['SLJ'].parts['Adhesive'].edges.getSequenceFromMask(('[#285 ]', 
+    ), ), number=10)
+mdb.models['SLJ'].parts['Adhesive'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8I, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6, elemLibrary=STANDARD), 
+    ElemType(elemCode=C3D4, elemLibrary=STANDARD)), regions=(
+    mdb.models['SLJ'].parts['Adhesive'].cells.getSequenceFromMask(('[#1 ]', ), 
+    ), ))
+mdb.models['SLJ'].parts['Adhesive'].generateMesh()
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].parts['Adherend_Bottom'].seedEdgeByNumber(constraint=FINER, 
+    edges=mdb.models['SLJ'].parts['Adherend_Bottom'].edges.getSequenceFromMask(
+    ('[#c50 ]', ), ), number=40)
+mdb.models['SLJ'].parts['Adherend_Bottom'].seedEdgeByNumber(constraint=FINER, 
+    edges=mdb.models['SLJ'].parts['Adherend_Bottom'].edges.getSequenceFromMask(
+    ('[#12a ]', ), ), number=4)
+mdb.models['SLJ'].parts['Adherend_Bottom'].seedEdgeByNumber(constraint=FINER, 
+    edges=mdb.models['SLJ'].parts['Adherend_Bottom'].edges.getSequenceFromMask(
+    ('[#285 ]', ), ), number=10)
+mdb.models['SLJ'].parts['Adherend_Bottom'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8I, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6, elemLibrary=STANDARD), 
+    ElemType(elemCode=C3D4, elemLibrary=STANDARD)), regions=(
+    mdb.models['SLJ'].parts['Adherend_Bottom'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['SLJ'].parts['Adherend_Bottom'].generateMesh()
+mdb.models['SLJ'].parts['Adherend_Top'].seedEdgeByNumber(constraint=FINER, 
+    edges=mdb.models['SLJ'].parts['Adherend_Top'].edges.getSequenceFromMask((
+    '[#285 ]', ), ), number=10)
+mdb.models['SLJ'].parts['Adherend_Top'].seedEdgeByNumber(constraint=FINER, 
+    edges=mdb.models['SLJ'].parts['Adherend_Top'].edges.getSequenceFromMask((
+    '[#12a ]', ), ), number=4)
+mdb.models['SLJ'].parts['Adherend_Top'].seedEdgeByNumber(constraint=FINER, 
+    edges=mdb.models['SLJ'].parts['Adherend_Top'].edges.getSequenceFromMask((
+    '[#c50 ]', ), ), number=40)
+mdb.models['SLJ'].parts['Adherend_Top'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8I, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6, elemLibrary=STANDARD), 
+    ElemType(elemCode=C3D4, elemLibrary=STANDARD)), regions=(
+    mdb.models['SLJ'].parts['Adherend_Top'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), ))
+mdb.models['SLJ'].parts['Adherend_Top'].generateMesh()
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].rootAssembly.regenerate()
+mdb.models['SLJ'].StaticStep(initialInc=0.1, name='Pull', nlgeom=ON, previous=
+    'Initial')
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].rootAssembly.Set(faces=
+    mdb.models['SLJ'].rootAssembly.instances['Adherend_Bottom-1'].faces.getSequenceFromMask(
+    ('[#1 ]', ), ), name='Set-1')
+mdb.models['SLJ'].EncastreBC(createStepName='Initial', localCsys=None, name=
+    'Fixed', region=mdb.models['SLJ'].rootAssembly.sets['Set-1'])
+mdb.models['SLJ'].rootAssembly.ReferencePoint(point=(112.5, 12.5, 2.6))
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].rootAssembly.Set(name='m_Set-2', referencePoints=(
+    mdb.models['SLJ'].rootAssembly.referencePoints[9], ))
+mdb.models['SLJ'].rootAssembly.Surface(name='s_Surf-1', side1Faces=
+    mdb.models['SLJ'].rootAssembly.instances['Adherend_Top-1'].faces.getSequenceFromMask(
+    ('[#4 ]', ), ))
+mdb.models['SLJ'].Coupling(controlPoint=
+    mdb.models['SLJ'].rootAssembly.sets['m_Set-2'], couplingType=KINEMATIC, 
+    influenceRadius=WHOLE_SURFACE, localCsys=None, name='Constraint-3', 
+    surface=mdb.models['SLJ'].rootAssembly.surfaces['s_Surf-1'], u1=ON, u2=OFF, 
+    u3=OFF, ur1=OFF, ur2=OFF, ur3=OFF)
+mdb.models['SLJ'].rootAssembly.Set(name='Set-3', referencePoints=(
+    mdb.models['SLJ'].rootAssembly.referencePoints[9], ))
+mdb.models['SLJ'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-2', 
+    region=mdb.models['SLJ'].rootAssembly.sets['Set-3'], u1=UNSET, u2=SET, u3=
+    SET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['SLJ'].rootAssembly.Set(name='Set-4', referencePoints=(
+    mdb.models['SLJ'].rootAssembly.referencePoints[9], ))
+mdb.models['SLJ'].ConcentratedForce(cf1=2000.0, createStepName='Pull', 
+    distributionType=UNIFORM, field='', localCsys=None, name='Load-1', region=
+    mdb.models['SLJ'].rootAssembly.sets['Set-4'])
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='SLJ', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='SLJ_baseline', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.jobs['SLJ_baseline'].submit(consistencyChecking=OFF)
+mdb.jobs['SLJ_baseline']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'REZA_PC', 'handle': 0, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR *TIE PAIR (ASSEMBLY_ADHESIVE-1_SURF_ADH_BOT-ASSEMBLY_ADHEREND_BOTTOM-1_SURF_BOT_TOP), ADJUSTED NODES WITH VERY SMALL ADJUSTMENTS WERE NOT PRINTED. SPECIFY *PREPRINT,MODEL=YES FOR COMPLETE PRINTOUT.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR *TIE PAIR (ASSEMBLY_ADHESIVE-1_SURF_ADH_TOP-ASSEMBLY_ADHEREND_TOP-1_SURF_TOP_BOT), ADJUSTED NODES WITH VERY SMALL ADJUSTMENTS WERE NOT PRINTED. SPECIFY *PREPRINT,MODEL=YES FOR COMPLETE PRINTOUT.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\SLJ_baseline.odb', 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'REZA_PC', 'handle': 16292, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'SLJ_baseline', 'memory': 138.0})
+mdb.jobs['SLJ_baseline']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 15558.0, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(MINIMUM_MEMORY, {'minimum_memory': 38.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'Solver problem. Numerical singularity when processing node ASSEMBLY.1 D.O.F. 4 ratio = 2.08209E+15.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 51 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 312 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 0.1, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'Solver problem. Numerical singularity when processing node ASSEMBLY.1 D.O.F. 4 ratio = 2.08209E+15.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1885 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.025, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'Solver problem. Numerical singularity when processing node ASSEMBLY.1 D.O.F. 4 ratio = 2.08209E+15.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.00625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 5, 
+    'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'Solver problem. Numerical singularity when processing node ASSEMBLY.1 D.O.F. 4 ratio = 2.08209E+15.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0015625, 
+    'attempts': 4, 'timeIncrement': 0.0015625, 'increment': 1, 
+    'stepTime': 0.0015625, 'step': 1, 'jobName': 'SLJ_baseline', 'severe': 0, 
+    'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.003125, 
+    'attempts': 1, 'timeIncrement': 0.0015625, 'increment': 2, 
+    'stepTime': 0.003125, 'step': 1, 'jobName': 'SLJ_baseline', 'severe': 0, 
+    'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0046875, 
+    'attempts': 1, 'timeIncrement': 0.0015625, 'increment': 3, 
+    'stepTime': 0.0046875, 'step': 1, 'jobName': 'SLJ_baseline', 'severe': 0, 
+    'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.005859375, 
+    'attempts': 1, 'timeIncrement': 0.001171875, 'increment': 4, 
+    'stepTime': 0.005859375, 'step': 1, 'jobName': 'SLJ_baseline', 'severe': 0, 
+    'iterations': 12, 'phase': STANDARD_PHASE, 'equilibrium': 12})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.00673828125, 
+    'attempts': 1, 'timeIncrement': 0.00087890625, 'increment': 5, 
+    'stepTime': 0.00673828125, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 12, 'phase': STANDARD_PHASE, 'equilibrium': 12})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0073974609375, 
+    'attempts': 1, 'timeIncrement': 0.0006591796875, 'increment': 6, 
+    'stepTime': 0.0073974609375, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 7, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.008056640625, 
+    'attempts': 1, 'timeIncrement': 0.0006591796875, 'increment': 7, 
+    'stepTime': 0.008056640625, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 8, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.008551025390625, 
+    'attempts': 1, 'timeIncrement': 0.000494384765625, 'increment': 8, 
+    'stepTime': 0.008551025390625, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 9, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.00892181396484375, 
+    'attempts': 1, 'timeIncrement': 0.00037078857421875, 'increment': 9, 
+    'stepTime': 0.00892181396484375, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 10, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.00919990539550781, 
+    'attempts': 1, 'timeIncrement': 0.000278091430664063, 'increment': 10, 
+    'stepTime': 0.00919990539550781, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 11, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.00940847396850586, 
+    'attempts': 1, 'timeIncrement': 0.000208568572998047, 'increment': 11, 
+    'stepTime': 0.00940847396850586, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 12, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0095649003982544, 
+    'attempts': 1, 'timeIncrement': 0.000156426429748535, 'increment': 12, 
+    'stepTime': 0.0095649003982544, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 13, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0096822202205658, 
+    'attempts': 1, 'timeIncrement': 0.000117319822311401, 'increment': 13, 
+    'stepTime': 0.0096822202205658, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 14, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.00977021008729935, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 14, 
+    'stepTime': 0.00977021008729935, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 15, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0098581999540329, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 15, 
+    'stepTime': 0.0098581999540329, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 16, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.00994618982076645, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 16, 
+    'stepTime': 0.00994618982076645, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 17, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0100341796875, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 17, 
+    'stepTime': 0.0100341796875, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 18, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0101221695542336, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 18, 
+    'stepTime': 0.0101221695542336, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 19, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0102101594209671, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 19, 
+    'stepTime': 0.0102101594209671, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 20, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0102981492877007, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 20, 
+    'stepTime': 0.0102981492877007, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 21, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0103861391544342, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 21, 
+    'stepTime': 0.0103861391544342, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 22, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0104741290211678, 
+    'attempts': 1, 'timeIncrement': 8.7989866733551e-05, 'increment': 22, 
+    'stepTime': 0.0104741290211678, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 23, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0105401214212179, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 23, 
+    'stepTime': 0.0105401214212179, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 24, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0106061138212681, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 24, 
+    'stepTime': 0.0106061138212681, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 25, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0106721062213183, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 25, 
+    'stepTime': 0.0106721062213183, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 26, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0107380986213684, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 26, 
+    'stepTime': 0.0107380986213684, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 27, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0108040910214186, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 27, 
+    'stepTime': 0.0108040910214186, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 28, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0108700834214687, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 28, 
+    'stepTime': 0.0108700834214687, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 29, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0109360758215189, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 29, 
+    'stepTime': 0.0109360758215189, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 30, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0110020682215691, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 30, 
+    'stepTime': 0.0110020682215691, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 31, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0110680606216192, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 31, 
+    'stepTime': 0.0110680606216192, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 32, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0111340530216694, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 32, 
+    'stepTime': 0.0111340530216694, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 33, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0112000454217196, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 33, 
+    'stepTime': 0.0112000454217196, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 34, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0112660378217697, 
+    'attempts': 1, 'timeIncrement': 6.59924000501633e-05, 'increment': 34, 
+    'stepTime': 0.0112660378217697, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 35, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0113155321218073, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 35, 
+    'stepTime': 0.0113155321218073, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 36, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'Warning message limit reached. No further warning messages will be reported.\nPlease see the dat file for more warnings.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.011365026421845, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 36, 
+    'stepTime': 0.011365026421845, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 37, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0114145207218826, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 37, 
+    'stepTime': 0.0114145207218826, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 38, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0114640150219202, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 38, 
+    'stepTime': 0.0114640150219202, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 39, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0115135093219578, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 39, 
+    'stepTime': 0.0115135093219578, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 40, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0115630036219955, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 40, 
+    'stepTime': 0.0115630036219955, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 41, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0116124979220331, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 41, 
+    'stepTime': 0.0116124979220331, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 42, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0116619922220707, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 42, 
+    'stepTime': 0.0116619922220707, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 43, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0117114865221083, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 43, 
+    'stepTime': 0.0117114865221083, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 44, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0117609808221459, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 44, 
+    'stepTime': 0.0117609808221459, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 45, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0118104751221836, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 45, 
+    'stepTime': 0.0118104751221836, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 46, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0118599694222212, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 46, 
+    'stepTime': 0.0118599694222212, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 47, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0119094637222588, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 47, 
+    'stepTime': 0.0119094637222588, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 48, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0119589580222964, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 48, 
+    'stepTime': 0.0119589580222964, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 49, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0120084523223341, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 49, 
+    'stepTime': 0.0120084523223341, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 50, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0120579466223717, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 50, 
+    'stepTime': 0.0120579466223717, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 51, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0121074409224093, 
+    'attempts': 1, 'timeIncrement': 4.94943000376225e-05, 'increment': 51, 
+    'stepTime': 0.0121074409224093, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 52, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0121445616474375, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 52, 
+    'stepTime': 0.0121445616474375, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 53, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0121816823724657, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 53, 
+    'stepTime': 0.0121816823724657, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 54, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.012218803097494, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 54, 
+    'stepTime': 0.012218803097494, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 55, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0122559238225222, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 55, 
+    'stepTime': 0.0122559238225222, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 56, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0122930445475504, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 56, 
+    'stepTime': 0.0122930445475504, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 57, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0123301652725786, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 57, 
+    'stepTime': 0.0123301652725786, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 58, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0123672859976068, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 58, 
+    'stepTime': 0.0123672859976068, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 59, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.012404406722635, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 59, 
+    'stepTime': 0.012404406722635, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 60, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0124415274476632, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 60, 
+    'stepTime': 0.0124415274476632, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 61, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0124786481726915, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 61, 
+    'stepTime': 0.0124786481726915, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 62, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0125157688977197, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 62, 
+    'stepTime': 0.0125157688977197, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 63, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0125528896227479, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 63, 
+    'stepTime': 0.0125528896227479, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 64, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0125900103477761, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 64, 
+    'stepTime': 0.0125900103477761, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 65, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0126271310728043, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 65, 
+    'stepTime': 0.0126271310728043, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 66, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0126642517978325, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 66, 
+    'stepTime': 0.0126642517978325, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 67, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0127013725228608, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 67, 
+    'stepTime': 0.0127013725228608, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 68, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.012738493247889, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 68, 
+    'stepTime': 0.012738493247889, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 69, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0127756139729172, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 69, 
+    'stepTime': 0.0127756139729172, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 70, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0128127346979454, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 70, 
+    'stepTime': 0.0128127346979454, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 71, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0128498554229736, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 71, 
+    'stepTime': 0.0128498554229736, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 72, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0128869761480018, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 72, 
+    'stepTime': 0.0128869761480018, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 73, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0129240968730301, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 73, 
+    'stepTime': 0.0129240968730301, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 74, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0129612175980583, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 74, 
+    'stepTime': 0.0129612175980583, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 75, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0129983383230865, 
+    'attempts': 1, 'timeIncrement': 3.71207250282168e-05, 'increment': 75, 
+    'stepTime': 0.0129983383230865, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 11, 'phase': STANDARD_PHASE, 'equilibrium': 11})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 76, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0130261788668577, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 76, 
+    'stepTime': 0.0130261788668577, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 77, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0130540194106288, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 77, 
+    'stepTime': 0.0130540194106288, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 78, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0130818599544, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 78, 
+    'stepTime': 0.0130818599544, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 79, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0131097004981711, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 79, 
+    'stepTime': 0.0131097004981711, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 80, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0131375410419423, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 80, 
+    'stepTime': 0.0131375410419423, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 81, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0131653815857135, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 81, 
+    'stepTime': 0.0131653815857135, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 82, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0131932221294846, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 82, 
+    'stepTime': 0.0131932221294846, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 83, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0132210626732558, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 83, 
+    'stepTime': 0.0132210626732558, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 84, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.013248903217027, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 84, 
+    'stepTime': 0.013248903217027, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 85, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0132767437607981, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 85, 
+    'stepTime': 0.0132767437607981, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 86, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0133045843045693, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 86, 
+    'stepTime': 0.0133045843045693, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 87, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0133324248483404, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 87, 
+    'stepTime': 0.0133324248483404, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 88, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0133602653921116, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 88, 
+    'stepTime': 0.0133602653921116, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 89, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0133881059358828, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 89, 
+    'stepTime': 0.0133881059358828, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 90, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0134159464796539, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 90, 
+    'stepTime': 0.0134159464796539, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 91, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0134437870234251, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 91, 
+    'stepTime': 0.0134437870234251, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 92, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0134716275671963, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 92, 
+    'stepTime': 0.0134716275671963, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 93, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0134994681109674, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 93, 
+    'stepTime': 0.0134994681109674, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 94, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0135273086547386, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 94, 
+    'stepTime': 0.0135273086547386, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 95, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0135551491985097, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 95, 
+    'stepTime': 0.0135551491985097, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 96, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0135829897422809, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 96, 
+    'stepTime': 0.0135829897422809, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 97, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0136108302860521, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 97, 
+    'stepTime': 0.0136108302860521, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 98, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0136386708298232, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 98, 
+    'stepTime': 0.0136386708298232, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 99, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0136665113735944, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 99, 
+    'stepTime': 0.0136665113735944, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 100, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.0136943519173656, 
+    'attempts': 1, 'timeIncrement': 2.78405437711626e-05, 'increment': 100, 
+    'stepTime': 0.0136943519173656, 'step': 1, 'jobName': 'SLJ_baseline', 
+    'severe': 0, 'iterations': 10, 'phase': STANDARD_PHASE, 'equilibrium': 10})
+mdb.jobs['SLJ_baseline']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Too many increments needed to complete the step', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'SLJ_baseline'})
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['SLJ'].boundaryConditions['BC-2'].setValues(ur1=SET, ur2=SET, ur3=
+    SET)
+mdb.jobs['SLJ_baseline'].submit(consistencyChecking=OFF)
+mdb.jobs['SLJ_baseline']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'REZA_PC', 'handle': 0, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR *TIE PAIR (ASSEMBLY_ADHESIVE-1_SURF_ADH_BOT-ASSEMBLY_ADHEREND_BOTTOM-1_SURF_BOT_TOP), ADJUSTED NODES WITH VERY SMALL ADJUSTMENTS WERE NOT PRINTED. SPECIFY *PREPRINT,MODEL=YES FOR COMPLETE PRINTOUT.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR *TIE PAIR (ASSEMBLY_ADHESIVE-1_SURF_ADH_TOP-ASSEMBLY_ADHEREND_TOP-1_SURF_TOP_BOT), ADJUSTED NODES WITH VERY SMALL ADJUSTMENTS WERE NOT PRINTED. SPECIFY *PREPRINT,MODEL=YES FOR COMPLETE PRINTOUT.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\SLJ_baseline.odb', 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'REZA_PC', 'handle': 21072, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'SLJ_baseline', 'memory': 138.0})
+mdb.jobs['SLJ_baseline']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 15558.0, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(MINIMUM_MEMORY, {'minimum_memory': 38.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.1, 'attempts': 1, 
+    'timeIncrement': 0.1, 'increment': 1, 'stepTime': 0.1, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 5, 
+    'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.2, 'attempts': 1, 
+    'timeIncrement': 0.1, 'increment': 2, 'stepTime': 0.2, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.3, 'attempts': 1, 
+    'timeIncrement': 0.1, 'increment': 3, 'stepTime': 0.3, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.45, 'attempts': 1, 
+    'timeIncrement': 0.15, 'increment': 4, 'stepTime': 0.45, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 0.675, 'attempts': 1, 
+    'timeIncrement': 0.225, 'increment': 5, 'stepTime': 0.675, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.325, 'increment': 6, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'SLJ_baseline', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['SLJ_baseline']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'SLJ_baseline'})
+mdb.jobs['SLJ_baseline']._Message(JOB_COMPLETED, {
+    'time': 'Sat Aug  8 05:59:38 2026', 'jobName': 'SLJ_baseline'})
+# Save by rezax on 2026_08_08-19.51.01; build 2022 2021_09_15-21.27.30 176069
